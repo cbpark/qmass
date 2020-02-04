@@ -12,8 +12,8 @@ CAlphaS *mkAlphaS(double mt, double mz, double alpha) {
     return reinterpret_cast<CAlphaS *>(as);
 }
 
-double alphasQ(CAlphaS *as, double q) {
-    LHAPDF::AlphaS *as_c = reinterpret_cast<LHAPDF::AlphaS *>(as);
-    return as_c->alphasQ(q);
+double alphasQ(CAlphaS *as_c, double q) {
+    LHAPDF::AlphaS *as = reinterpret_cast<LHAPDF::AlphaS *>(as_c);
+    return as->alphasQ(q);
 }
 }
