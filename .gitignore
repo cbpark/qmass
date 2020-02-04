@@ -1,0 +1,12 @@
+.#*
+*~
+*.gch
+TAGS
+dist*
+cabal.project.local
+.ghc.environment.*
+result
+stack.yaml.lock
+.stack-work
+*.dat
+*.old
