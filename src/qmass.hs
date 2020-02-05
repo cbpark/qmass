@@ -31,9 +31,9 @@ data MassiveQuark = Top | Bottom | Charm deriving Eq
 
 poleMass :: MassiveQuark -> Double
 poleMass q | q == Top   = 173.0
-          | q == Bottom =   4.78
-          | q == Charm  =   1.67
-          | otherwise   =   0.0
+           | q == Bottom =   4.78
+           | q == Charm  =   1.67
+           | otherwise   =   0.0
 
 nLight :: MassiveQuark -> Double
 nLight q | q == Top    = 5
