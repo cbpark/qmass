@@ -61,7 +61,9 @@ mMSbarMu :: AlphaS -> Double -> MassiveQuark -> IO Double
 mMSbarMu as scale q = do
     (mqMS, mqPole) <- mMSbarQ as q
 
-    [a0, a1] <- mapM (alphasQ as) [mqPole, scale]
+    -- [a0, a1] <- mapM (alphasQ as) [mqPole, scale]
+    a0 <- alphasQ as mqPole
+    a1 <- alphasQ as scale
     cs <- zipWithM cAlphaRG [a0, a1] [mqPole, scale]
 
     return $ case cs of
