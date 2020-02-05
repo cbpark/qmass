@@ -16,7 +16,7 @@ main = do
 
     putStrLn "\n-- alpha_s:"
     let printAlphaS q = alphasQ as q >>= print
-    mapM_ printAlphaS [mt, mZ, mb, mc]
+    mapM_ printAlphaS [1000, 500, mt, 125, mZ, mb, mc]
 
     putStrLn "\n-- mq(mq):"
     mapM (mMSbarQ as) [Top, Bottom, Charm] >>= mapM_ (print . fst)
@@ -30,7 +30,7 @@ main = do
 data MassiveQuark = Top | Bottom | Charm deriving Eq
 
 poleMass :: MassiveQuark -> Double
-poleMass q | q == Top   = 173.0
+poleMass q | q == Top    = 173.0
            | q == Bottom =   4.78
            | q == Charm  =   1.67
            | otherwise   =   0.0
@@ -62,7 +62,6 @@ mMSbarMu as scale q = do
     (mqMS, mqPole) <- mMSbarQ as q
 
     [a0, a1] <- mapM (alphasQ as) [mqPole, scale]
-    -- [c0, c1] <- mapM (uncurry cAlphaRG) (zip [a0, a1] [mqPole, scale])
     cs <- zipWithM cAlphaRG [a0, a1] [mqPole, scale]
 
     return $ case cs of
